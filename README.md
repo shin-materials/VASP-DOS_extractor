@@ -40,9 +40,9 @@ For example, if you want to extract PDOS of all elements in Sr2Fe2O5, and Fe1 at
 9.9503	-0.0000
 
 10.0082	-0.0000  <-- This is end of the first block
-
-
-
+ 
+ 
+ 
 -59.5136	0.0000  <-- This is start of the second block
 
 -59.4556	0.0000
