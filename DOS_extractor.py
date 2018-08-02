@@ -17,23 +17,16 @@ import sys
 #import numpy as np
 
 ###### System arguments: XML file name, output filename, Type of elements #################
-#xml_filename=sys.argv[1]
-#out_filename1=sys.argv[2]
-#
-#list_element=[]
-#list_sites=[]
-#for i in range(3,len(sys.argv)):
-#    if sys.argv[i][-1].isdigit():
-#        list_sites.append(sys.argv[i])
-#    else:
-#        list_element.append(sys.argv[i])
+xml_filename=sys.argv[1]
+out_filename1=sys.argv[2]
 
-##imports vasprun.xml into dos object
-##dos_vrun = Vasprun("SFO_P30_AFM_G.xml")
-xml_filename="SFO_P30_AFM_G.xml"
-out_filename1='ISPIN2.dat'
-list_element=['Sr','Fe','O']
-list_sites=['Fe1']
+list_element=[]
+list_sites=[]
+for i in range(3,len(sys.argv)):
+    if sys.argv[i][-1].isdigit():
+        list_sites.append(sys.argv[i])
+    else:
+        list_element.append(sys.argv[i])
 
 
 dos_vrun=Vasprun(xml_filename)
