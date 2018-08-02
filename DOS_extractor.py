@@ -63,9 +63,9 @@ out_file1=open(out_filename1,'w')
 #out_file1.write('# Total(Up, Down), Sr(Up,Down), Fe(Up,Down), O(Up,Down), Fe1(Up,Down)\n')
 list_printed=list_element+list_sites
 if ispin==2:
-    out_file1.write('# BandGap: {0:.3f}eV, Label: Spin up/down for Total, '.format(total_dos.get_gap())+', '.join(list_printed)+'\n')
+    out_file1.write('# BandGap: {0:.3f} eV, Label: Spin up/down for Total, '.format(total_dos.get_gap())+', '.join(list_printed)+'\n')
 else:
-    out_file1.write('# BandGap: {0:.3f}eV, Label: Spin up for Total, '.format(total_dos.get_gap())+', '.join(list_printed)+'\n')
+    out_file1.write('# BandGap: {0:.3f} eV, Label: Spin up for Total, '.format(total_dos.get_gap())+', '.join(list_printed)+'\n')
                     
 # Energy grid point is obtained from site_dos of the first atom
 n_E_grid=len(total_dos.get_site_dos(struct[0]).energies)
