@@ -24,18 +24,31 @@ For example, if you want to extract PDOS of all elements in Sr2Fe2O5, and Fe1 at
   $ python DOS_extractor.py vasprun.xml Sr2Fe2O5.dat Sr Fe O Fe1
   
 # The output file, Sr2Fe2O5.dat will be look like as follows (basically same with p4vasp format):
-'# BandGap: 0.348, Label: Spin up/down for Total, Sr, Fe, O, Fe1 \n
--59.5136	0.0000  <-- This is start of the first block \n
+
+'# BandGap: 0.348, Label: Spin up/down for Total, Sr, Fe, O, Fe1
+
+-59.5136	0.0000  <-- This is start of the first block
+
 -59.4556	0.0000
+
 .
+
 .
+
 .
+
 9.9503	-0.0000
+
 10.0082	-0.0000  <-- This is end of the first block
 
+
+
 -59.5136	0.0000  <-- This is start of the second block
+
 -59.4556	0.0000
+
 .
+
 .
 
 Left column of each block is energy grid, and the right column is the DOS.
