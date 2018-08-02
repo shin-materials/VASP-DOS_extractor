@@ -8,10 +8,10 @@ Pymatgen-based python script to extract density of states (DOS) and projected DO
 This script replaces one of the most common use of p4vasp: extracting DOS data from VASP (http://cms.mpi.univie.ac.at/vasp/) output, which is a density functional theory (DFT) calculation program. Though p4vasp is with intuitive GUI, extracting DOS data can easily take time especially when the number of atom, band, and energy grid are larger. Note that you should install pymatgen (http://pymatgen.org/) before using this script.
   
 ## The process with p4vasp usually happens as follows:
-  - Download xml file to local computer (often over 100 MB)
+  - Download xml file to local computer ***(often over 100 MB)***
   - Open p4vasp and open xml file
-  - Plot element or individual atom of interest to plot the local projection of DOS (PDOS). (This process takes most of the time)
-  - Export data to designated filename. 
+  - Plot element or individual atom of interest to plot the local projection of DOS (PDOS). ***(This process takes most of the time)***
+  - Export data to designated filename ***(This file is usually less than 1MB)***
 
 ## With DOS_extractor.py, these four process can be done with one command line:
   '''
@@ -22,12 +22,14 @@ This script replaces one of the most common use of p4vasp: extracting DOS data f
 [List_of_elements_to_plot_PDOS]: The elements are separated by space.
 [List_of atoms_to_plot_PDOS]: The atoms are separated by space.
 
+
+## Example case
 For example, if you want to extract PDOS of all elements in Sr2Fe2O5, and Fe1 atom, you might do the command as follows.
   '''
   $ python DOS_extractor.py vasprun.xml Sr2Fe2O5.dat Sr Fe O Fe1
   '''
   
-## The output file, Sr2Fe2O5.dat will be look like as follows (basically same with p4vasp format):
+### The output file, Sr2Fe2O5.dat will be look like as follows (basically same with p4vasp format):
 
 '# BandGap: 0.348, Label: Spin up/down for Total, Sr, Fe, O, Fe1<br/>
 -59.5136	0.0000  <-- This is start of the first block<br/>
