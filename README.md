@@ -23,4 +23,4 @@ For example, if you want to extract PDOS of all elements in Sr2Fe2O5, and Fe1 at
   
 The output file, Sr2Fe2O5.dat will be look like as follows:
 -------------------
-# BandGap: 0.348, Label: Spin up/down for Total, Sr, Fe, O, Fe1
+'# BandGap: 0.348, Label: Spin up/down for Total, Sr, Fe, O, Fe1
