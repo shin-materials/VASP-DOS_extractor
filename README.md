@@ -26,9 +26,7 @@ For example, if you want to extract PDOS of all elements in Sr2Fe2O5, and Fe1 at
 # The output file, Sr2Fe2O5.dat will be look like as follows (basically same with p4vasp format):
 
 '# BandGap: 0.348, Label: Spin up/down for Total, Sr, Fe, O, Fe1
-
 -59.5136	0.0000  <-- This is start of the first block
-
 -59.4556	0.0000
 
 .
