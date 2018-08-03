@@ -114,7 +114,7 @@ for individual_atom in list_sites:
 
 
 out_file1.close()
-print ('Interpolated Band gap is: ')
+print ('Interpolated Band gap is: {0:.3f}'.format(total_dos.get_gap()))
 if ispin==1:
     print('Only up-spin is printed for following components')
 else:
