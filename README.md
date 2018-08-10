@@ -14,20 +14,18 @@ This script replaces one of the most common use of p4vasp: extracting DOS data f
   - Export data to designated filename ***(This file is usually less than 1MB)***
 
 ## With DOS_extractor.py, these four process can be done with one command line:
-  '''
-  $ python DOS_extractor.py [xml_filename] [output_filename] [List_of_elements_to plot_PDOS] [List_of_atoms_to_plot_PDOS]
-  '''
-[xml_filename]: name of vasprun.xml file.
-[output_filename]: name of data containing DOS. Format basically follows the exported data from p4vasp, but in the line1, this code prints header starting with # showing the Band gap, and list of data in the output file.
-[List_of_elements_to_plot_PDOS]: The elements are separated by space.
-[List_of atoms_to_plot_PDOS]: The atoms are separated by space.
+  **$ python DOS_extractor.py [xml_filename] [out_filename] [Elements_to plot_PDOS] [Atoms_to_plot_PDOS]**
+  </br>
+[xml_filename]: name of vasprun.xml file.</br>
+[out_filename]: name of data containing DOS. Format basically follows the exported data from p4vasp, but in the line1, this code prints header starting with # showing the Band gap, and list of data in the output file.</br>
+[Elements_to_plot_PDOS]: The elements are separated by space.</br>
+[Atoms_to_plot_PDOS]: The atoms are separated by space.</br>
 
 
 ## Example case
-For example, if you want to extract PDOS of all elements in Sr2Fe2O5, and Fe1 atom, you might do the command as follows.
-  '''
-  $ python DOS_extractor.py vasprun.xml Sr2Fe2O5.dat Sr Fe O Fe1
-  '''
+For example, if you want to extract PDOS of all elements in Sr2Fe2O5, and Fe1 atom, you might do the command as follows.</br>
+  **$ python DOS_extractor.py vasprun.xml Sr2Fe2O5.dat Sr Fe O Fe1</br>**
+  
   
 ### The output file, Sr2Fe2O5.dat will be look like as follows (basically same with p4vasp format):
 
