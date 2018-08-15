@@ -5,7 +5,7 @@
 Pymatgen-based python script to extract density of states (DOS) and projected DOS from vasprun.xml file
   
 ### What does this do:
-This script replaces one of the most common use of p4vasp: extracting DOS data from VASP (http://cms.mpi.univie.ac.at/vasp/) output, which is a density functional theory (DFT) calculation program. Though p4vasp is with intuitive GUI, extracting DOS data can easily take time especially when the number of atom, band, and energy grid are larger. Note that you should install pymatgen (http://pymatgen.org/) before using this script.
+This script replaces one of the most common use of p4vasp: extracting DOS data from [VASP](http://cms.mpi.univie.ac.at/vasp/) output, which is a density functional theory (DFT) calculation program. Though [p4vasp](http://www.p4vasp.at/#/) is with intuitive GUI, extracting DOS data can easily take time especially when the number of atom, band, and energy grid are larger. Note that you should install pymatgen (http://pymatgen.org/) before using this script.
   
 ### The process with p4vasp usually happens as follows:
   - Download xml file to local computer ***(often over 100 MB)***
@@ -17,19 +17,25 @@ This script replaces one of the most common use of p4vasp: extracting DOS data f
  ```
   $ python DOS_extractor.py [xml_filename] [out_filename] [entries_or_options]
  ```
-- [xml_filename]: name of vasprun.xml file.</br>
-- [out_filename]: name of DOS data file. By default it follows the printing format of p4vasp, except for the line1 containing header. Header starts with # showing the Band gap, and list of data in the output file.</br>
-- [entries]: entry can be element or specific atom. The script also supports orbital projection by specifiying orbital with entry dash (-).</br>
-  - Example) 
-    - Fe-d: d-orbitals of Fe
-    - Fe1: DOS of Fe1 atom
-    - Fe-dxy: dxy-orbital of Fe
-    - Fe1-dxy: dxy-orbital of Fe1 atom
-    - O-px: p-orbital of O
-- [options]: option can be stated with --. At this moment there are three options,</br>
-  - --elements: </br>
-  - --atoms: </br>
-  - --block: </br>
+- [xml_filename]: name of vasprun.xml file.
+- [out_filename]: name of DOS data file. By default it follows the printing format of ***p4vasp***, except for the line1 containing header. Header starts with # showing the Band gap, and list of data in the output file.
+  - p4vasp format: 
+  - block format:
+- [entries]: Entry can be element or specific atom. Atom label follows the [VESTA](http://jp-minerals.org/vesta/en/), for example atoms in BaTiO3 unit cell would be Ba1, Ti1, O1, O2, O3. The script also supports orbital projection by specifiying orbital after dash (-). Nomenclatures and examples are as follows.
+  - Note that these nomenclatures are basically the order in which the orbitals are reported in VASP and has no special meaning.
+    - p-orbitals: px, py, pz
+    - d-orbitals: dxy, dyz, dz2, dxz, dx2
+    - f-orbitals are f_3, f_2, f_1, f0, f1, f2, f3. 
+  - Fe: DOS of all Fe atoms
+  - Fe-d: d-orbitals of Fe
+  - Fe-dxy: dxy-orbital of Fe 
+  - Fe1: DOS of Fe1 atom
+  - Fe1-dxy: dxy-orbital of Fe1 atom
+  - O-px: px-orbital of O
+- [options]: option can be stated with --. At this moment there are three options. 
+  - --elements: Include all elements in the system to the entries.
+  - --atoms: Include all individual atoms in the system to the entries.
+  - --block: Change printing option to block data. Otherwise the printing option will follow p4vasp.
 
 
 ### Example case
