@@ -5,8 +5,6 @@ Created on Thu Jul 12 22:12:08 2018
 @author: Yongjin
 0717: Error fixing + energy offset to Fermi energy
 0718: Implement ISPIN 1 and ISPIN 2 + Printing band gap
-
-To implement:
 0810: total_dos.get_element_spd_dos(Element['Fe'])
 temp=total_dos.get_site_spd_dos(struct.sites[8])
 temp2=total_dos.get_site_orbital_dos(struct.sites[8], Orbital.dz2)
