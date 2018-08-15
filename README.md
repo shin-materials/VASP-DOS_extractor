@@ -12,7 +12,7 @@ This script replaces one of the most common use of p4vasp: extracting DOS data f
   - Open p4vasp and open xml file
   - Plot element or individual atom of interest to plot the local projection of DOS (PDOS). ***(This process takes most of the time)***
   - Export data to designated filename ***(This file is usually less than 1MB)***
-
+------------------------------------
 ### With DOS_extractor.py, these four process can be done with one command line:
  ```
   $ python DOS_extractor.py [xml_filename] [out_filename] [entries_or_options]
@@ -37,7 +37,7 @@ This script replaces one of the most common use of p4vasp: extracting DOS data f
   - --atoms: Include all individual atoms in the system to the entries.
   - --block: Change printing option to block data. Otherwise the printing option will follow p4vasp.
 
-
+------------------------------------
 ### Example case
 For example, if you want to extract PDOS of all elements in Sr2Fe2O5, and Fe1 atom, you might do the command as follows.</br>
   **$ python DOS_extractor.py vasprun.xml Sr2Fe2O5.dat Sr Fe O Fe1</br>**
