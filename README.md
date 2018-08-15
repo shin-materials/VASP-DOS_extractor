@@ -14,9 +14,9 @@ This script replaces one of the most common use of p4vasp: extracting DOS data f
   - Export data to designated filename ***(This file is usually less than 1MB)***
 
 ## With DOS_extractor.py, these four process can be done with one command line:
-'''
+```
   **$ python DOS_extractor.py [xml_filename] [out_filename] [entries_or_options]**
- '''
+ ```
   </br>
 **[xml_filename]**: name of vasprun.xml file.</br>
 **[out_filename]**: name of DOS data file. By default it follows the printing format of p4vasp, except for the line1 containing header. Header starts with # showing the Band gap, and list of data in the output file.</br>
