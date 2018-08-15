@@ -46,16 +46,15 @@ For example, if you want to extract PDOS of all elements in Sr2Fe2O5, and Fe1 at
 ### The output file, Sr2Fe2O5.dat will be look like as follows (basically same with p4vasp format):
 
 \# BandGap: 0.348eV, Label: Total(Up), Total(Dn), Sr(Up), Sr(Dn), Fe(Up), Fe(Dn), O(Up), O(Dn), Fe1(Up), Fe1(Dn)</br>
-'# BandGap: 0.348, Label: Spin up/down for Total, Sr, Fe, O, Fe1<br/>
--59.5136	0.0000  <-- This is start of the first block<br/>
+-59.5136	0.0000  <-- This is start of the first array, which is for Total(Up)<br/>
 -59.4556	0.0000<br/>
 .<br/>
 .<br/>
 .<br/>
 9.9503	-0.0000<br/>
-10.0082	-0.0000  <-- This is end of the first block<br/>
+10.0082	-0.0000  <-- This is end of the first array<br/>
 <br/>
--59.5136	0.0000  <-- This is start of the second block<br/>
+-59.5136	0.0000  <-- This is start of the second array, which is for Total(Dn)<br/>
 -59.4556	0.0000<br/>
 .<br/>
 .<br/>
