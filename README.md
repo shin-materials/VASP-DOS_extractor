@@ -15,14 +15,14 @@ This script replaces one of the most common use of p4vasp: extracting DOS data f
 
 ### With DOS_extractor.py, these four process can be done with one command line:
 ```
-  **$ python DOS_extractor.py [xml_filename] [out_filename] [entries_or_options]**
+  $ python DOS_extractor.py [xml_filename] [out_filename] [entries_or_options]
  ```
   </br>
-**[xml_filename]**: name of vasprun.xml file.</br>
-**[out_filename]**: name of DOS data file. By default it follows the printing format of p4vasp, except for the line1 containing header. Header starts with # showing the Band gap, and list of data in the output file.</br>
-**[entries]**: entry can be element or specific atom. The script also supports orbital projection.</br>
+***[xml_filename]***: name of vasprun.xml file.</br>
+***[out_filename]***: name of DOS data file. By default it follows the printing format of p4vasp, except for the line1 containing header. Header starts with # showing the Band gap, and list of data in the output file.</br>
+***[entries]***: entry can be element or specific atom. The script also supports orbital projection.</br>
 Example) Fe-d: d-orbitals of Fe, Fe1: DOS of Fe1 atom, Fe-dxy: dxy-orbital of Fe, Fe1-dxy: dxy-orbital of Fe 1 atom, O-px: p-orbital of O. </br>
-**[options]**: option can be stated with --. At this moment there are three options,</br>
+***[options]***: option can be stated with --. At this moment there are three options,</br>
 --elements: </br>
 '--atoms', '--block'.
 
