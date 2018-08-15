@@ -40,10 +40,10 @@ This script replaces one of the most common use of p4vasp: extracting DOS data f
 ### Example case
 For example, if you want to extract PDOS of all elements in Sr2Fe2O5, and Fe1 atom, you might do the command as follows.</br>
   ```
-  $ python DOS_extractor.py vasprun.xml Sr2Fe2O5.dat Sr Fe O Fe1
+  $ python DOS_extractor.py vasprun.xml Sr2Fe2O5.dat Sr Fe O Fe1-d
   ```
 **The output file, Sr2Fe2O5.dat will be look like as follows (basically same with p4vasp format)**</br>
-\# BandGap: 0.348eV, Label: Total(Up), Total(Dn), Sr(Up), Sr(Dn), Fe(Up), Fe(Dn), O(Up), O(Dn), Fe1(Up), Fe1(Dn)</br>
+\# BandGap: 0.348eV, Label: Total(Up), Total(Dn), Sr(Up), Sr(Dn), Fe(Up), Fe(Dn), O(Up), O(Dn), Fe1-d(Up), Fe1-d(Dn)</br>
 -59.5136	0.0000  <-- This is start of the first array, which is for Total(Up)<br/>
 -59.4556	0.0000<br/>
 .<br/>
