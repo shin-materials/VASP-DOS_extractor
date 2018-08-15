@@ -1,19 +1,19 @@
 # VASP_DOS_extractor
 ------------------
-## Simple description:
+### Simple description:
 
 Pymatgen-based python script to extract density of states (DOS) and projected DOS from vasprun.xml file
   
-## What does this do:
+### What does this do:
 This script replaces one of the most common use of p4vasp: extracting DOS data from VASP (http://cms.mpi.univie.ac.at/vasp/) output, which is a density functional theory (DFT) calculation program. Though p4vasp is with intuitive GUI, extracting DOS data can easily take time especially when the number of atom, band, and energy grid are larger. Note that you should install pymatgen (http://pymatgen.org/) before using this script.
   
-## The process with p4vasp usually happens as follows:
+### The process with p4vasp usually happens as follows:
   - Download xml file to local computer ***(often over 100 MB)***
   - Open p4vasp and open xml file
   - Plot element or individual atom of interest to plot the local projection of DOS (PDOS). ***(This process takes most of the time)***
   - Export data to designated filename ***(This file is usually less than 1MB)***
 
-## With DOS_extractor.py, these four process can be done with one command line:
+### With DOS_extractor.py, these four process can be done with one command line:
 ```
   **$ python DOS_extractor.py [xml_filename] [out_filename] [entries_or_options]**
  ```
@@ -27,7 +27,7 @@ Example) Fe-d: d-orbitals of Fe, Fe1: DOS of Fe1 atom, Fe-dxy: dxy-orbital of Fe
 '--atoms', '--block'.
 
 
-## Example case
+### Example case
 For example, if you want to extract PDOS of all elements in Sr2Fe2O5, and Fe1 atom, you might do the command as follows.</br>
   **$ python DOS_extractor.py vasprun.xml Sr2Fe2O5.dat Sr Fe O Fe1</br>**
   
