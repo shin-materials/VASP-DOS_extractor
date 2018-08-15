@@ -42,7 +42,7 @@ For example, if you want to extract PDOS of all elements in Sr2Fe2O5, and Fe1 at
   ```
   $ python DOS_extractor.py vasprun.xml Sr2Fe2O5.dat Sr Fe O Fe1
   ```
-**The output file, Sr2Fe2O5.dat will be look like as follows (basically same with p4vasp format)**
+**The output file, Sr2Fe2O5.dat will be look like as follows (basically same with p4vasp format)**</br>
 \# BandGap: 0.348eV, Label: Total(Up), Total(Dn), Sr(Up), Sr(Dn), Fe(Up), Fe(Dn), O(Up), O(Dn), Fe1(Up), Fe1(Dn)</br>
 -59.5136	0.0000  <-- This is start of the first array, which is for Total(Up)<br/>
 -59.4556	0.0000<br/>
