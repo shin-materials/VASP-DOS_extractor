@@ -19,8 +19,13 @@ This script replaces one of the most common use of p4vasp: extracting DOS data f
  ```
 - [xml_filename]: name of vasprun.xml file.</br>
 - [out_filename]: name of DOS data file. By default it follows the printing format of p4vasp, except for the line1 containing header. Header starts with # showing the Band gap, and list of data in the output file.</br>
-- [entries]: entry can be element or specific atom. The script also supports orbital projection.</br>
-Example) Fe-d: d-orbitals of Fe, Fe1: DOS of Fe1 atom, Fe-dxy: dxy-orbital of Fe, Fe1-dxy: dxy-orbital of Fe 1 atom, O-px: p-orbital of O. </br>
+- [entries]: entry can be element or specific atom. The script also supports orbital projection by specifiying orbital with entry dash (-).</br>
+  - Example) 
+    - Fe-d: d-orbitals of Fe
+    - Fe1: DOS of Fe1 atom
+    - Fe-dxy: dxy-orbital of Fe
+    - Fe1-dxy: dxy-orbital of Fe1 atom
+    - O-px: p-orbital of O
 - [options]: option can be stated with --. At this moment there are three options,</br>
   - --elements: </br>
   - --atoms: </br>
