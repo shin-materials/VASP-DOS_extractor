@@ -1,17 +1,11 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thu Jul 12 22:12:08 2018
+Created on Wed Aug 15 2018
 
-@author: Yongjin
-0717: Error fixing + energy offset to Fermi energy
-0718: Implement ISPIN 1 and ISPIN 2 + Printing band gap
-
-To implement:
-0810: total_dos.get_element_spd_dos(Element['Fe'])
-temp=total_dos.get_site_spd_dos(struct.sites[8])
-temp2=total_dos.get_site_orbital_dos(struct.sites[8], Orbital.dz2)
-Question. Fe-dz2 is not supported
-0814: easy commands, --block --elements --atoms
+@author: Yongjin Shin
+Research Group: Materials Design and Theory Group
+Advisor: Prof. James Rondinelli
+Affiliation: Northwestern University
 
 System arguments: XML file name, output filename, optional_entries
 """
@@ -24,7 +18,6 @@ import copy
 import sys
 import re
 #import os
-#import numpy as np
 
 #########################################################################
 ###########   PART1: PREPARATION. LOAD FILE AND READ DOS ################
@@ -227,13 +220,14 @@ def dos_p4v_print(list_entries,total_dos,out_filename1):
     # Print header, including band gap, and list of printed DOS ######
     out_file1=open(out_filename1,'w')
     #out_file1.write('# Total(Up, Down), Sr(Up,Down), Fe(Up,Down), O(Up,Down), Fe1(Up,Down)\n')
-    list_printed=list_entries
-    if ispin==2:
-        out_file1.write('# BandGap: {0:.3f}eV, Label: Spin up/down for Total, '\
-                        .format(band_gap)+', '.join(list_printed)+'\n')
-    else:
-        out_file1.write('# BandGap: {0:.3f}eV, Label: Spin up for Total, '\
-                        .format(band_gap)+', '.join(list_printed)+'\n')    
+    list_label=[]
+    spin_label=['(Up)','(Dn)']
+    for j in range(ispin):
+        list_label.append('Total'+spin_label[j])
+    for entry in list_entries:
+        for j in range(ispin):
+            list_label.append(entry+spin_label[j])
+    out_file1.write('# BandGap: {0:.3f}eV, Label: '.format(band_gap)+', '.join(list_label)+'\n')
     # print total dos first
     for j in range(ispin):
         # spin is Spin.up or Spin.down
@@ -277,6 +271,7 @@ def dos_p4v_print(list_entries,total_dos,out_filename1):
 list_entries=[]
 #default for p4v format
 print_function=dos_p4v_print
+# Make list of entries
 for i in range(3,len(sys.argv)):
     #option arguments
     if sys.argv[i][:2] == '--':        
@@ -293,6 +288,7 @@ for i in range(3,len(sys.argv)):
 ##############################################################
 
 ### Print on file ############################################
+
 print_function(list_entries,total_dos,out_filename)
 ##############################################################
 
@@ -302,5 +298,5 @@ if ispin==1:
     print('Only up-spin is printed for following components')
 else:
     print('Spin up/down is printed for following components')
-print ('--Entries: '+str(list_entries))
+print ('--Entries: '+', '.join(list_entries))
 ##############################################################
