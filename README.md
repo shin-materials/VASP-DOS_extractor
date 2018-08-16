@@ -21,12 +21,12 @@ This script replaces one of the most common use of p4vasp: extracting DOS data f
   - p4vasp format: This format is collection of data arrays. Each data array represents each entry, including total DOS, which are composed of two columns; column1 for energy and column2 for DOS of entry. line1 is header starting with #, which shows the Band gap, and list of data in the output file.
   - block format: This format is intuitive structured data with row of energy grid and column of each entry. The line1 contains labels.
 - [entries]: Entry can be element or specific atom. Atom label follows the [VESTA](http://jp-minerals.org/vesta/en/), for example atoms in BaTiO3 unit cell would be Ba1, Ti1, O1, O2, O3. The script also supports orbital projection by specifiying orbital after dash (-). Examples and nomenclatures are as follows.
-  - Fe: DOS of all Fe atoms
-  - Fe-d: d-orbitals of Fe
-  - Fe-dxy: dxy-orbital of Fe 
-  - Fe1: DOS of Fe1 atom
-  - Fe1-dxy: dxy-orbital of Fe1 atom
-  - O-px: px-orbital of O
+  - Ex) Fe: DOS of all Fe atoms
+  - Ex) Fe-d: d-orbitals of Fe
+  - Ex) Fe-dxy: dxy-orbital of Fe 
+  - Ex) Fe1: DOS of Fe1 atom
+  - Ex) Fe1-dxy: dxy-orbital of Fe1 atom
+  - Ex) O-px: px-orbital of O
   - Note that these nomenclatures are basically the order in which the orbitals are reported in VASP and has no special meaning.
     - p-orbitals: px, py, pz
     - d-orbitals: dxy, dyz, dz2, dxz, dx2
