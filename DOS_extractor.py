@@ -30,9 +30,6 @@ import re
 ### System arguments: XML file name, output filename ####
 xml_filename=sys.argv[1]
 out_filename=sys.argv[2]
-#xml_filename='SFO_P30_AFM_G.xml'
-#out_filename='SFO_test.dat'
-#list_entries=['Sr', 'Fe-d', 'O-px', 'Fe1-d']
 ##########################################################
 
 ### Read xmlfile and load dos object #####################
