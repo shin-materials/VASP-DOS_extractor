@@ -8,8 +8,8 @@ Affiliation: Northwestern University
 System arguments: XML file name, output filename, optional_entries
 
 Maintenance update
-180816: struct.sites is not recognized as pdos keys.
-To resolve this, I make list_sites=list(pdos.keys()) and use it to get pdos. 
+180816: struct.sites is not recognized as pdos keys. So I change the struct=dos_vrun.structures[-1] to dos_vrun.final_structure
+Other way to resolve this, I make list_sites=list(pdos.keys()) and use it to get pdos. 
 To make sure if list_sites has the same order with struct.sites, I compare their ._fcoords and if they are different print warning message.
 """
 #from pymatgen.electronic_structure import dos
@@ -40,7 +40,6 @@ dos_vrun=Vasprun(xml_filename)
 #get dos object
 total_dos = dos_vrun.complete_dos
 #get structure from vasprun
-#struct = dos_vrun.structures[-1] #Omitted on 0816
 struct = dos_vrun.final_structure
 #n_E
 n_E=len(total_dos.energies)
@@ -90,8 +89,6 @@ for i in range(0,struct.num_sites):
         n_atom_count_dict.update({struct[i].specie:1})
     #Obtain site dos and update site_dos_dict
     site_dos.update({'{0}{1}'.format(struct.species[i],n_atom_count_dict[struct[i].specie]): total_dos.get_site_dos(struct[i])})
-    # 180816 edit:use list_sites instead of struct[i]
-#    site_dos.update({'{0}{1}'.format(struct.species[i],n_atom_count_dict[struct[i].specie]): total_dos.get_site_dos(list_sites[i])})
 ##########################################################
 
 ### Function for getting orbital densities ###############
@@ -113,15 +110,11 @@ def orbital_dos(object_orbital):
         # length of orbital_str can distinguish whether specific orbital or orbital type
         if len(orbital_str)==1:
             # case for orbital type
-            ## Edited 180816: use list_sites instead of struct.sites
             site_spd_dos=total_dos.get_site_spd_dos(struct.sites[label2site_index[object_str]])
-#            site_spd_dos=total_dos.get_site_spd_dos(list_sites[label2site_index[object_str]])
             dos_dict=site_spd_dos[OrbitalType[orbital_str]].densities        
         else:
             # orbital is one specific orbital. Ex) s, px, py, dx2, dxy, dxz
             site_orbital_dos=total_dos.get_site_orbital_dos(struct.sites[label2site_index[object_str]],Orbital[orbital_str])
-            ## Edited 180816: use list_sites instead of struct.sites
-#            site_orbital_dos=total_dos.get_site_orbital_dos(list_sites[label2site_index[object_str]],Orbital[orbital_str])
             dos_dict=site_orbital_dos.densities
     else:
         #case: element
@@ -139,9 +132,7 @@ def orbital_dos(object_orbital):
                 dos_dict.update({Spin.down:np.zeros(shape=(len(total_dos.energies)))})
             # now sum inidivdual dos of designate element
             for site_index in list(struct.indices_from_symbol(object_str)):
-                # Edited 180816: use list_sites instead of struct.sites
-                site_orbital_dos=total_dos.get_site_orbital_dos(struct.sites[site_index],Orbital[orbital_str])
-#                site_orbital_dos=total_dos.get_site_orbital_dos(list_sites[site_index],Orbital[orbital_str])
+                site_orbital_dos=total_dos.get_site_orbital_dos(struct.sites[site_index],Orbital[orbital_str]
                 for j in range(ispin):
                     spin=spin_list[j]
                     #update for each spin
