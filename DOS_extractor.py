@@ -22,9 +22,6 @@ import sys
 import re
 #import os
 
-sys.argv=['DOS_extractor.py','vasprun.xml','test.out','V1-d','--block']
-#sys.argv=['DOS_extractor.py','vasprun_final.xml','test2.out','Mn1']
-
 #########################################################################
 ###########   PART1: PREPARATION. LOAD FILE AND READ DOS ################
 #########################################################################
