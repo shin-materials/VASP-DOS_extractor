@@ -129,7 +129,7 @@ def orbital_dos(object_orbital):
                 dos_dict.update({Spin.down:np.zeros(shape=(len(total_dos.energies)))})
             # now sum inidivdual dos of designate element
             for site_index in list(struct.indices_from_symbol(object_str)):
-                site_orbital_dos=total_dos.get_site_orbital_dos(struct.sites[site_index],Orbital[orbital_str]
+                site_orbital_dos=total_dos.get_site_orbital_dos(struct.sites[site_index],Orbital[orbital_str])
                 for j in range(ispin):
                     spin=spin_list[j]
                     #update for each spin
