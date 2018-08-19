@@ -48,6 +48,6 @@ For example, if you want to extract PDOS of all elements in Sr2Fe2O5, and Fe1 at
   ```
   $ python DOS_extractor.py vasprun.xml Sr2Fe2O5_block.dat --elements Fe1-d --block
   ```
-**Output file will contain same data as above, but with block data format (Note that '--elements' substitues Sr Fe O command in this case)**</br>
+**Output file will contain same data as above, but with block data format (Note that '--elements' substitutes Sr Fe O command in this case)**</br>
 ![alt text](https://github.com/why-shin/VASP-DOS_extractor/blob/master/Example2_block_data_format.png?raw=true)
  
