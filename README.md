@@ -42,20 +42,12 @@ For example, if you want to extract PDOS of all elements in Sr2Fe2O5, and Fe1 at
   ```
   $ python DOS_extractor.py vasprun.xml Sr2Fe2O5.dat Sr Fe O Fe1-d
   ```
-**The output file, Sr2Fe2O5.dat will be look like as follows (basically same with p4vasp format)**</br>
-\# BandGap: 0.348eV, Label: Total(Up), Total(Dn), Sr(Up), Sr(Dn), Fe(Up), Fe(Dn), O(Up), O(Dn), Fe1-d(Up), Fe1-d(Dn)</br>
--59.5136	0.0000  <-- This is start of the first array, which is for Total(Up)<br/>
--59.4556	0.0000<br/>
-.<br/>
-.<br/>
-.<br/>
-9.9503	-0.0000<br/>
-10.0082	-0.0000  <-- This is end of the first array<br/>
-<br/>
--59.5136	0.0000  <-- This is start of the second array, which is for Total(Dn)<br/>
--59.4556	0.0000<br/>
-.<br/>
-.<br/>
-<br/>
-Left column of each block is energy grid, and the right column is the DOS.
-In this example, there will be 10 blocks with Total DOS (up-spin/down-spin), Sr (up-spin/down-spin), Fe (up-spin/down-spin), O (up-spin/down-spin), and Fe1 (up-spin/down-spin). If the system was non-magnetic calculation, there will be 5 blocks by not including down-spin DOS.
+**Corresponding output file is as follows (basically same with p4vasp format)**</br>
+![alt text](https://github.com/why-shin/VASP-DOS_extractor/blob/master/Example1_p4v_format.png?raw=true)
+
+  ```
+  $ python DOS_extractor.py vasprun.xml Sr2Fe2O5_block.dat --elements Fe1-d --block
+  ```
+**Output file will contain same data as above, but with block data format (Note that '--elements' substitues Sr Fe O command in this case)**</br>
+![alt text](https://github.com/why-shin/VASP-DOS_extractor/blob/master/Example2_block_data_format.png?raw=true)
+ 
