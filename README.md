@@ -37,7 +37,7 @@ This script replaces one of the most common use of p4vasp: extracting DOS data f
   - --block: Change printing option to block data. Otherwise the printing option will follow p4vasp.
 
 ------------------------------------
-### Example case
+### Example case 
 For example, if you want to extract PDOS of all elements in Sr2Fe2O5, and Fe1 atom, you might do the command as follows.</br>
   ```
   $ python DOS_extractor.py vasprun.xml Sr2Fe2O5.dat Sr Fe O Fe1-d
