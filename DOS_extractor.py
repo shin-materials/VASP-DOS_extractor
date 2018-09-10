@@ -5,7 +5,28 @@ Created on Wed Aug 15 2018
 Research Group: Materials Design and Theory Group
 Advisor: Prof. James Rondinelli
 Affiliation: Northwestern University
-System arguments: XML file name, output filename, optional_entries
+
+Command:
+ $ python DOS_extractor.py [xml_filename] [out_filename] [entries_or_options]
+-[xml_filename]: name of vasprun.xml file.
+-[out_filename]: name of DOS data file. By default it follows the printing format of p4vasp. For spin polarized system, spin up/down
+-p4vasp format: This format is collection of data arrays. Each data array represents each entry, including total DOS, which are composed of two columns; column1 for energy and column2 for DOS of entry. line1 is header starting with #, which shows the Band gap, and list of data in the output file.
+block format: This format is intuitive structured data with row of energy grid and column of each entry. The line1 contains labels.
+-[entries]: Entry can be element or specific atom. Atom label follows the VESTA, for example atoms in BaTiO3 unit cell would be Ba1, Ti1, O1, O2, O3. The script also supports orbital projection by specifiying orbital after dash (-). Examples and nomenclatures are as follows.
+Ex) Fe: DOS of all Fe atoms
+Ex) Fe-d: d-orbitals of Fe
+Ex) Fe-dxy: dxy-orbital of Fe
+Ex) Fe1: DOS of Fe1 atom
+Ex) Fe1-dxy: dxy-orbital of Fe1 atom
+Ex) O-px: px-orbital of O
+Note that these nomenclatures are basically the order in which the orbitals are reported in VASP and has no special meaning.
+p-orbitals: px, py, pz
+d-orbitals: dxy, dyz, dz2, dxz, dx2
+f-orbitals: f_3, f_2, f_1, f0, f1, f2, f3
+-[options]: option can be stated with --. At this moment there are three options.
+--elements: Include all elements in the system to the entries.
+--atoms: Include all individual atoms in the system to the entries.
+--block: Change printing option to block data. Otherwise the printing option will follow p4vasp.
 
 Maintenance update
 180816: struct.sites is not recognized as pdos keys. So I change the struct=dos_vrun.structures[-1] to dos_vrun.final_structure
@@ -22,6 +43,7 @@ import sys
 import re
 #import os
 
+#sys.argv=['DOS_extractor.py','SFO_P30_AFM_G.xml', 'block.dat','--elements','Fe1-d','--block']
 
 #########################################################################
 ###########   PART1: PREPARATION. LOAD FILE AND READ DOS ################
@@ -142,9 +164,9 @@ def orbital_dos(object_orbital):
 #########################################################################
 ###########   PART2: PRINTING FORMATS. BLOCK OR P4VASP ##################
 #########################################################################
-    
+
 ##### Block Print ###########################################
-def dos_block_print(list_entries,total_dos,out_filename):
+def dos_block_print(list_entries, total_dos, out_filename):
     """
     input:
         list_entries - list, elements are entries with object-orbital
@@ -163,11 +185,11 @@ def dos_block_print(list_entries,total_dos,out_filename):
     # Reason to copy total_dos is because numpy.reshape makes total_dos object somewhat dirty
     total_dos1=copy.deepcopy(total_dos)
     data_array=total_dos1.energies.reshape(n_E,1)
-    data_array[:,0]=data_array[:,0]-total_dos1.efermi
+    data_array[:, 0] = data_array[:, 0] - total_dos1.efermi
     # Append total_dos first
     for j in range(ispin):
-        spin=spin_list[j]
-        temp_array=copy.copy(total_dos1.densities[spin])
+        spin = spin_list[j]
+        temp_array = copy.copy(total_dos1.densities[spin])
         temp_array=float(int(spin))*temp_array
         data_array=np.concatenate((data_array,temp_array.reshape(n_E,1)),axis=1)
     # Loop for each entry                    
@@ -208,7 +230,7 @@ def dos_block_print(list_entries,total_dos,out_filename):
 #############################################################
    
 ### Print with p4vasp data format ###########################
-def dos_p4v_print(list_entries,total_dos,out_filename1):
+def dos_p4v_print(list_entries, total_dos, out_filename1):
     """
     input:
         list_entries - list, elements are entries with object-orbital
@@ -259,7 +281,7 @@ def dos_p4v_print(list_entries,total_dos,out_filename1):
                 out_file1.write('{0: .4f}\t{1:.4f}\n'.format(total_dos1.energies[i]-total_dos1.efermi,\
                                 float(int(spin))*dos_dict[spin][i]))
             #p4vasp_format: Spacer between different array
-            out_file1.write('\n') 
+            out_file1.write('\n')
     out_file1.close()
     return None
 #############################################################
@@ -268,7 +290,7 @@ def dos_p4v_print(list_entries,total_dos,out_filename1):
 ###########   PART3: DEFINE ENTRIES AND PRINT OUT #######################
 #########################################################################
 
-
+ 
 ### Construct entries and options ############################
 list_entries=[]
 #default for p4v format
@@ -302,3 +324,4 @@ else:
     print('Spin up/down is printed for following components')
 print ('--Entries: '+', '.join(list_entries))
 ##############################################################
+
