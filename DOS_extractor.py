@@ -41,9 +41,6 @@ import numpy as np
 import copy
 import sys
 import re
-#import os
-
-#sys.argv=['DOS_extractor.py','SFO_P30_AFM_G.xml', 'block.dat','--elements','Fe1-d','--block']
 
 #########################################################################
 ###########   PART1: PREPARATION. LOAD FILE AND READ DOS ################
